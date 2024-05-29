@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/dashboard"
+        android:title="Dashboard"
+        android:icon="@drawable/baseline_bungalow_24"/>
+
+    <item android:id="@+id/invoice"
+        android:title="Invoice"
+        android:icon="@drawable/baseline_description_34"/>
+    <item android:id="@+id/Shop_info"
+        android:title="Shop Info"
+        android:icon="@drawable/baseline_add_business_24"/>
+</menu>

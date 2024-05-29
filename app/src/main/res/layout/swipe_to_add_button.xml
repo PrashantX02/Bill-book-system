@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/button_selector"
+    android:backgroundTint="?attr/colorPrimary"
+    android:orientation="horizontal"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/add_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/add_text"
+        android:src="@drawable/ic_right"
+        android:tint="@android:color/black"
+        tools:ignore="UseAppTint" />
+
+    <TextView
+        android:id="@+id/add_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:onClick="onSwipeToAdd"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="SWIPE TO ADD"
+        android:textColor="@drawable/text_color_proceed_bg" />
+
+</RelativeLayout>

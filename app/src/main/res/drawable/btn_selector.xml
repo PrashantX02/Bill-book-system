@@ -1,0 +1,7 @@
+<!-- button_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed state -->
+    <item android:state_pressed="true" android:drawable="@drawable/proceed_btn_pressed_bg" />
+    <!-- Default state -->
+    <item android:drawable="@drawable/cart_btn_bg" />
+</selector>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:id="@+id/addProductNewView"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_bg">
+
+    <View
+        android:id="@+id/topBorder"
+        android:layout_width="150dp"
+        android:layout_height="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/top_border_bg" />
+
+    <LinearLayout
+        android:id="@+id/topHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topBorder"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Product"
+            android:textSize="20sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fieldCont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topHeader"
+        android:layout_marginTop="-3dp"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Product Name:" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center">
+
+                <EditText
+                    android:id="@+id/addProductName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/invoices_items"
+                    android:hint="Product Name"
+                    android:padding="15dp"
+                    android:paddingStart="10dp" />
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Product MRP:" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center">
+
+                <EditText
+                    android:id="@+id/addProductMRP"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/invoices_items"
+                    android:hint="Product MRP"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:paddingStart="10dp" />
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Product Price:" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center">
+
+                <EditText
+                    android:id="@+id/addProductPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/invoices_items"
+                    android:hint="Product Price"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:paddingStart="10dp" />
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Discount Percent:" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center">
+
+                <EditText
+                    android:id="@+id/addProductDiscount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/invoices_items"
+                    android:hint="Discount Percent"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:paddingStart="10dp" />
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Avail. Stock:" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center">
+
+                <EditText
+                    android:id="@+id/addProductStock"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/invoices_items"
+                    android:hint="Available Stock Units"
+                    android:inputType="numberDecimal"
+                    android:padding="15dp"
+                    android:paddingStart="10dp" />
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/addProduct"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:background="@drawable/button_selector"
+            android:onClick="addProduct">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:tint="@color/color_selector"
+                android:padding="10dp"
+                android:src="@drawable/ic_add"
+                tools:ignore="UseAppTint" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/add_product_text"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Add Product"
+                android:textColor="@drawable/text_color_proceed_bg"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
