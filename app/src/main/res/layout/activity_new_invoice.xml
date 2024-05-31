@@ -1,4 +1,5 @@
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -15,18 +16,23 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary">
 
             <!-- Toolbar -->
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbarNewInvoice"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                app:titleTextColor="#0c0e13"
                 android:background="?attr/colorPrimary"
-                app:layout_collapseMode="pin"
-                app:titleTextColor="#0c0e13">
+                app:layout_collapseMode="pin">
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/suggestionRV"
+                    android:layout_marginEnd="10dp"/>
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -47,119 +53,84 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
                 android:orientation="horizontal"
+                android:background="#FFFFFF"
                 android:padding="10dp">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Customer Info"
+                    android:textSize="18sp"
                     android:textColor="#0c0e13"
-                    android:textSize="18sp" />
-
+                    android:text="Customer Info"/>
                 <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/customerNameBox"
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
                         android:layout_gravity="center"
-                        android:layout_marginHorizontal="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/customerName"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:hint="Customer Name" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_weight="1"
+                        android:textColorHint="#A8A8A8"
+                        android:background="@drawable/invoices_items"
+                        android:hint="Customer Name"
+                        android:id="@+id/customerName"
+                        android:layout_marginRight="10dp"
+                        android:minHeight="48dp"
+                        android:padding="10dp"
+                        android:textColor="#0c0e13" />
                 </ScrollView>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#FFFFFF"
-                    android:text="Customer Name"
-                    android:textSize="20sp" />
-            </LinearLayout>
             <!-- RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/purchasedItemsRV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="#FFFFFF" />
+                android:layout_marginTop="10dp"
+                android:background="#FFFFFF"
+                android:id="@+id/purchasedItemsRV"/>
 
             <!-- Product Section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="#FFFFFF"
                 android:orientation="vertical"
-                android:padding="10dp">
-
+                android:padding="10dp"
+                android:background="#FFFFFF"
+                android:layout_marginTop="10dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ScrollView
-                        android:id="@+id/epScroll"
                         android:layout_width="220dp"
-                        android:layout_height="65dp">
+                        android:layout_height="match_parent">
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/productNameBox"
-                            android:layout_width="match_parent"
+                        <EditText
+                            android:id="@+id/productEditText"
+                            android:layout_width="200dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginHorizontal="16dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/invoices_items"
+                            android:hint="Product Name"
+                            android:textColorHint="#A8A8A8"
+                            android:padding="10dp"
+                            android:textColor="#0c0e13"
+                            tools:ignore="TouchTargetSizeCheck" />
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/productEditText"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:hint="Enter Product Here" />
-                        </com.google.android.material.textfield.TextInputLayout>
                     </ScrollView>
-
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/suggestionRV"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/epScroll"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginEnd="10dp" />
-
                     <LinearLayout
-                        android:id="@+id/addProduct"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:background="@drawable/btn_selector"
                         android:clickable="true"
                         android:focusable="true"
+                        android:id="@+id/addProduct"
                         android:orientation="horizontal"
                         android:padding="10dp"
                         tools:ignore="TouchTargetSizeCheck">
@@ -185,82 +156,70 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="MRP : ₹" />
-
+                            android:text="MRP : ₹"/>
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="180"
                             android:id="@+id/MRP"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            tools:text="180" />
+                            android:layout_marginLeft="8dp"/>
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="PRICE : ₹" />
-
+                            android:text="PRICE : ₹"/>
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="150"
                             android:id="@+id/sellingPrice"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            tools:text="150" />
+                            android:layout_marginLeft="8dp"/>
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="DISCOUNT% :" />
-
+                            android:text="DISCOUNT% :"/>
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="20"
                             android:id="@+id/discountPercent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            tools:text="20" />
+                            android:layout_marginLeft="8dp"/>
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
-
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Product In Stock:" />
-
+                            android:text="Product In Stock:"/>
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="20"
                             android:id="@+id/productStock"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            tools:text="20" />
+                            android:layout_marginLeft="8dp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -277,109 +236,105 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
                 android:orientation="horizontal"
+                android:background="#FFFFFF"
                 android:padding="10dp">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Overall Price: "
-                    android:textSize="13sp" />
-
+                    android:textSize="13sp"
+                    android:text="Overall Price: "/>
                 <TextView
                     android:id="@+id/overallTv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textColor="#0c0e13"
+                    android:textSize="15sp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="₹180"
-                    android:textColor="#0c0e13"
-                    android:textSize="15sp" />
+                    android:text="₹0"/>
             </LinearLayout>
 
             <!-- Payment Method Section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
                 android:orientation="horizontal"
+                android:background="#FFFFFF"
                 android:padding="10dp">
-
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
                     android:text="Payment Method"
-                    android:textColor="#0c0e13" />
+                    android:textColor="#0c0e13"/>
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/gpay"
                     android:layout_width="30dp"
-                    android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="50dp"
                     android:src="@drawable/gpay" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/ppe"
                     android:layout_width="35dp"
-                    android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/ppe" />
+                    android:src="@drawable/ppe"/>
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/bpe"
                     android:layout_width="35dp"
-                    android:layout_height="35dp"
                     android:layout_gravity="center_vertical"
+                    android:layout_height="35dp"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/bpe" />
+                    android:src="@drawable/bpe"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
     <com.google.android.material.bottomappbar.BottomAppBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:backgroundTint="?attr/colorOnPrimary">
-
+        android:backgroundTint="?attr/colorOnPrimary"
+        android:layout_gravity="bottom">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/addToCb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btn_selector"
-                android:clickable="true">
+                android:clickable="true"
+                android:id="@+id/addToCb"
+                android:background="@drawable/btn_selector">
                 <!-- ImageButton with click effect -->
                 <FrameLayout
+                    android:id="@+id/view_recent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/cartInvoice"
+                        android:id="@+id/recent"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
-                        android:layout_marginRight="60dp"
                         android:paddingStart="50dp"
+                        android:layout_marginRight="60dp"
+                        android:src="@drawable/baseline_access_time_24"
                         android:paddingEnd="50dp"
-                        android:src="@drawable/baseline_add_shopping_cart_64"
-                        android:textColor="?attr/colorOnPrimaryContainer" />
+                        android:textColor="?attr/colorOnPrimaryContainer"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="Add to Cart"
-                        android:textColor="@color/color_selector" />
+                        android:text="Recent"
+                        android:textColor="@color/color_selector"
+                        android:gravity="center"/>
                 </FrameLayout>
 
             </LinearLayout>
@@ -389,13 +344,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:background="@drawable/button_selector"
                 android:paddingStart="50dp"
                 android:paddingEnd="50dp"
-                android:text="Proceed"
                 android:textColor="@drawable/text_color_proceed_bg"
-                android:textSize="12dp" />
+                android:text="Proceed"
+                android:textSize="12dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/button_selector" />
 
         </LinearLayout>
     </com.google.android.material.bottomappbar.BottomAppBar>

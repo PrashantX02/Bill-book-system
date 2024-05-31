@@ -47,14 +47,15 @@ class RecivedPayment : AppCompatActivity() {
 
 
                     var list = mutableListOf<Transaction_data>()
-                    for (snap in snapshot.children) {
+                    for (snap in snapshot.children.toList().asReversed()) {
                         val name = snap.child("name").getValue(String::class.java).toString()
                         val price = snap.child("price").getValue(String::class.java).toString()
+                        val product = snap.child("product").getValue(String::class.java).toString()
 
-                        list.add(Transaction_data(name, price))
+                        list.add(Transaction_data(name, price,product))
                     }
 
-                    val adapter = TransectionAdapter(list.reversed())
+                    val adapter = TransectionAdapter(list,0)
                     transaction.adapter = adapter
                 }
 

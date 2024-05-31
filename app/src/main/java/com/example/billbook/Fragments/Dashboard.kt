@@ -25,34 +25,35 @@ class Dashboard : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        val  view : View = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
-        val transaction: RecyclerView = view.findViewById(R.id.TranSectionAdapter)
+        val transaction  : RecyclerView = view.findViewById(R.id.TranSectionAdapter)
 
         transaction.layoutManager = LinearLayoutManager(context)
 
 
-        FirebaseDatabase.getInstance().getReference("transaction")
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
+        FirebaseDatabase.getInstance().getReference("transaction").addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
 
 
-                    var list = mutableListOf<Transaction_data>()
-                    for (snap in snapshot.children) {
-                        val name = snap.child("name").getValue(String::class.java).toString()
-                        val price = snap.child("price").getValue(String::class.java).toString()
+                var list  =  mutableListOf<Transaction_data>()
 
-                        list.add(Transaction_data(name, price))
-                    }
+                for(snap in snapshot.children.toList().asReversed()){
+                    val name = snap.child("name").getValue(String::class.java).toString()
+                    val price = snap.child("price").getValue(String::class.java).toString()
+                    val product = snap.child("product").getValue(String::class.java).toString()
 
-                    val adapter = TransectionAdapter(list.reversed())
-                    transaction.adapter = adapter
+                    list.add(Transaction_data(name,price,product))
                 }
 
-                override fun onCancelled(error: DatabaseError) {
-                    // nothing to do right now
-                }
-            })
+                val adapter = TransectionAdapter(list,0)
+                transaction.adapter = adapter
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // nothing to do right now
+            }
+        })
         return view
     }
 

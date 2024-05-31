@@ -68,5 +68,11 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:21.0.6")
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-firestore-ktx:24.0.0")
+    implementation("com.google.firebase:firebase-firestore-ktx:24.0.0")
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+
+    // piccaso
+    implementation("com.squareup.picasso:picasso:2.8")
 
 }
