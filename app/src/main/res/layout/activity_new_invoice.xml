@@ -135,20 +135,16 @@
                         android:padding="10dp"
                         tools:ignore="TouchTargetSizeCheck">
 
-                        <TextView
+                        <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:text="Add"
-                            android:textColor="#0c0e13" />
+                            android:layout_marginStart="8dp"
+                            app:icon="@drawable/ic_add"
+                            android:layout_weight="1"
+                            android:text="+ ADD"
+                            android:textAllCaps="false" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="10dp"
-                            android:src="@drawable/ic_add"
-                            app:tint="#0c0e13" />
                     </LinearLayout>
                 </RelativeLayout>
 
@@ -303,10 +299,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="24dp"
+            android:weightSum="2">
             <LinearLayout
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
+                android:id="@+id/editShopInfo"
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:id="@+id/addToCb"
@@ -340,8 +340,16 @@
             </LinearLayout>
             <!-- Button with click effect -->
             <Button
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:icon="@drawable/baseline_add_shopping_cart_64"
+                android:text="Add to cart"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/addInvoice"
-                android:layout_width="match_parent"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:paddingStart="50dp"
@@ -351,6 +359,10 @@
                 android:textSize="12dp"
                 android:layout_alignParentBottom="true"
                 android:background="@drawable/button_selector" />
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="Proceed"
+                android:textAllCaps="false" />
 
         </LinearLayout>
     </com.google.android.material.bottomappbar.BottomAppBar>

@@ -59,7 +59,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     // lottie animation
-    implementation("com.airbnb.android:lottie:6.4.0")
+    implementation("com.airbnb.android:lottie:6.4.1")
     // circle image view
     implementation("de.hdodenhof:circleimageview:3.1.0")
     //fire base basic implementation
