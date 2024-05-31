@@ -164,20 +164,16 @@
                         android:padding="10dp"
                         tools:ignore="TouchTargetSizeCheck">
 
-                        <TextView
+                        <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:text="Add"
-                            android:textColor="#0c0e13" />
+                            android:layout_marginStart="8dp"
+                            app:icon="@drawable/ic_add"
+                            android:layout_weight="1"
+                            android:text="+ ADD"
+                            android:textAllCaps="false" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="10dp"
-                            android:src="@drawable/ic_add"
-                            app:tint="#0c0e13" />
                     </LinearLayout>
                 </RelativeLayout>
 
@@ -349,53 +345,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="24dp"
+            android:weightSum="2">
 
-            <LinearLayout
-                android:id="@+id/addToCb"
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:id="@+id/editShopInfo"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:icon="@drawable/baseline_add_shopping_cart_64"
+                android:text="Add to cart"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addInvoice"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btn_selector"
-                android:clickable="true">
-                <!-- ImageButton with click effect -->
-                <FrameLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/cartInvoice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="60dp"
-                        android:paddingStart="50dp"
-                        android:paddingEnd="50dp"
-                        android:src="@drawable/baseline_add_shopping_cart_64"
-                        android:textColor="?attr/colorOnPrimaryContainer" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="Add to Cart"
-                        android:textColor="@color/color_selector" />
-                </FrameLayout>
-
-            </LinearLayout>
-            <!-- Button with click effect -->
-            <Button
-                android:id="@+id/addInvoice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:background="@drawable/button_selector"
-                android:paddingStart="50dp"
-                android:paddingEnd="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
                 android:text="Proceed"
-                android:textColor="@drawable/text_color_proceed_bg"
-                android:textSize="12dp" />
+                android:textAllCaps="false" />
 
         </LinearLayout>
     </com.google.android.material.bottomappbar.BottomAppBar>
